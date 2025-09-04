@@ -154,6 +154,7 @@ jobs:
             retention-days: 7
             path: |
               ./dist/*.tar.gz
+              ./dist/*.sbom.json
 
   # Creates a release using artifacts created in the previous steps.
   # workflow_dispatch triggered versions will be draft releases.
@@ -191,7 +192,7 @@ jobs:
         run: |
           shopt -s failglob
           pushd dist
-          shasum -a 256 kitops-* > checksums.txt
+          shasum -a 256 kitops-*.tar.gz > checksums.txt
           mv checksums.txt kitops_${TAG_NAME}_checksums.txt
           cp kitops_${TAG_NAME}_checksums.txt ../homebrew-files/.
           popd
