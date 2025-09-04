@@ -1,5 +1,5 @@
 {
-  "version": "v1.7.0",
+  "version": "test-release",
   "peerDependencies": {
     "vue": "^3.5"
   },
